@@ -1395,6 +1395,15 @@ class Ai302Chat(Base):
         super().__init__(key, model_name, base_url, **kwargs)
 
 
+class YuanjingChat(Base):
+    _FACTORY_NAME = "yuanjing"
+
+    def __init__(self, key, model_name, base_url="https://maas-api.ai-yuanjing.com/openapi/compatible-mode/v1", **kwargs):
+        if not base_url:
+            base_url = "https://maas-api.ai-yuanjing.com/openapi/compatible-mode/v1"
+        super().__init__(key, model_name, base_url, **kwargs)
+
+
 class LiteLLMBase(ABC):
     _FACTORY_NAME = ["Tongyi-Qianwen", "Bedrock", "Moonshot", "xAI", "DeepInfra", "Groq", "Cohere", "Gemini", "DeepSeek", "NVIDIA", "TogetherAI", "Anthropic"]
 
@@ -1402,6 +1411,7 @@ class LiteLLMBase(ABC):
         self.timeout = int(os.environ.get("LM_TIMEOUT_SECONDS", 600))
         self.provider = kwargs.get("provider", "")
         self.prefix = LITELLM_PROVIDER_PREFIX.get(self.provider, "")
+        print(f"Using {self.provider} ======== {self.prefix}")
         self.model_name = f"{self.prefix}{model_name}"
         self.api_key = key
         self.base_url = base_url or FACTORY_DEFAULT_BASE_URL.get(self.provider, "")

@@ -36,12 +36,14 @@ class SupportedLiteLLMProvider(StrEnum):
     Nvidia = "NVIDIA"
     TogetherAI = "TogetherAI"
     Anthropic = "Anthropic"
+    Yuanjing = "yuanjing"
 
 
 FACTORY_DEFAULT_BASE_URL = {
     SupportedLiteLLMProvider.Tongyi_Qianwen: "https://dashscope.aliyuncs.com/compatible-mode/v1",
     SupportedLiteLLMProvider.Dashscope: "https://dashscope.aliyuncs.com/compatible-mode/v1",
     SupportedLiteLLMProvider.Moonshot: "https://api.moonshot.cn/v1",
+    SupportedLiteLLMProvider.Yuanjing: "https://maas-api.ai-yuanjing.com/openapi/compatible-mode/v1",
 }
 
 
@@ -59,6 +61,7 @@ LITELLM_PROVIDER_PREFIX = {
     SupportedLiteLLMProvider.Nvidia: "nvidia_nim/",
     SupportedLiteLLMProvider.TogetherAI: "together_ai/",
     SupportedLiteLLMProvider.Anthropic: "",  # don't need a prefix
+    SupportedLiteLLMProvider.Yuanjing: "",  # don't need a prefix
 }
 
 ChatModel = globals().get("ChatModel", {})

@@ -4204,6 +4204,21 @@
             ]
         },
         {
+            "name": "yuanjing",
+            "logo": "",
+            "tags": "LLM,TEXT EMBEDDING",
+            "status": "1",
+            "llm": [
+                {
+                    "llm_name": "deepseek-v3",
+                    "tags": "LLM,CHAT,64K",
+                    "max_tokens": 65536,
+                    "model_type": "chat",
+                    "is_tools": true
+                }
+            ]
+        },
+        {
             "name": "302.AI",
             "logo": "",
             "tags": "LLM,TEXT EMBEDDING,TEXT RE-RANK,IMAGE2TEXT",
