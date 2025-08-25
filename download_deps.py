@@ -17,7 +17,7 @@ import os
 import urllib.request
 import argparse
 
-def get_urls(use_china_mirrors=False) -> Union[str, list[str]]:
+def get_urls(use_china_mirrors=True) -> Union[str, list[str]]:
     if use_china_mirrors:
         return [
             "http://mirrors.tuna.tsinghua.edu.cn/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb",
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     parser.add_argument('--china-mirrors', action='store_true', help='Use China-accessible mirrors for downloads')
     args = parser.parse_args()
     
-    urls = get_urls(args.china_mirrors)
+    urls = get_urls(True)
     
     for url in urls:
         download_url = url[0] if isinstance(url, list) else url

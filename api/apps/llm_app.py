@@ -60,6 +60,7 @@ def set_api_key():
     factory = req["llm_factory"]
     extra = {"provider": factory}
     msg = ""
+    print(f"set_api_key {req} =====")
     for llm in LLMService.query(fid=factory):
         if not embd_passed and llm.model_type == LLMType.EMBEDDING.value:
             assert factory in EmbeddingModel, f"Embedding model from {factory} is not supported yet."
