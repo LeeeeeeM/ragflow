@@ -4222,6 +4222,13 @@
                     "max_tokens": 65536,
                     "model_type": "chat",
                     "is_tools": true
+                },
+                {
+                    "llm_name": "qwen3-embed-0.6b",
+                    "tags": "TEXT EMBEDDING",
+                    "max_tokens": 8192,
+                    "model_type": "embedding",
+                    "is_tools": false
                 }
             ]
         },
